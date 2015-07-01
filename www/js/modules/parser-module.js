@@ -8,27 +8,27 @@ angular.module('parserModule', ['parserModule']).factory('parserModule', functio
 
       parsePlugin.subscribe('ios', function() {
 
+        //
         parsePlugin.getInstallationId(function(id) {
 
-           var install_data = {
-            installation_id: id,
-            channels: ['ios']
-           };
+           var install_data = { installation_id: id, channels: ['ios'};
 
           $.jStorage.set('pushInfo', install_data);
           $.jStorage.set('pushID', id);
 
 
         }, function(e) {
-          alert('error');
+          // callback error installation_id
         });
 
+
       }, function(e) {
-        alert('error');
+          // callback error subscribe
       });
 
+
     }, function(e) {
-      alert('error');
+      // callback error initialize parsePlugin
     });
 
     parsePlugin.registerCallback('onNotification', function() {
@@ -44,7 +44,6 @@ angular.module('parserModule', ['parserModule']).factory('parserModule', functio
   });
 
   return{
-     print  : _print,
-     export : _export
+
    }
 });
